@@ -44,6 +44,11 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 function displayWeatherCondition(response) {
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -59,6 +64,15 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather[0].main;
+   windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+ 
 }
 
 function convertToFahrenheit(event) {
