@@ -29,13 +29,14 @@
               <input
                 type="text"
                 placeholder="Type name of city.."
-                class="search-engine"
+                class="form-control"
                 autofocus="on"
                 autocomplete="off"
                 id="search-city-input"
               />
-              <input type="submit" value="search" />
-              <br />
+              <input type="submit" value="search" 
+               class="btn btn-primary w-100"/>
+
             </div>
           </div>
         </form>
@@ -47,17 +48,21 @@
         <h3></h3>
         <br />
         <ul>
-          <li id="temperature">
+          <li >
             <strong> Today </strong>
 
-            <a href="#" id="celsius-link">°C</a>
-            |
+            <strong id="temperature"></strong
+                  ><span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
           </li>
-          <a href="#" id="fahrenheit-link">°F</a>
+        
           <li id="weatherDescription">Sunny</li>
           <li>Max <span id="maxTemp"></span>°C</li>
           <li>Min <span id="minTemp"></span>°C</li>
-          <li>Humidity <span id="humidity">0</span>%</li>
+          <li>Humidity <span id="humidity"></span>%</li>
+          <li>Wind: <span id="wind"></span> km/h</li>
         </ul>
 
         <hr />
